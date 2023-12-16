@@ -1,0 +1,19 @@
+// ##############################
+// lesson 2
+    // 1- install laravel 8 project
+    // 2- install mcamara/laravel localization
+    // 3- install astratomic/laravel-translatable
+    // 4- install laravel breeze
+    // 5- create new route file dashboard 
+    // 6- install dashboard backend 
+    // 7- php artisan make: controller Dashboard\DashboardController
+    // 8- create route Dashboard index
+
+// lesson 3
+     1- new guarded   (admin)
+     2- make model Admin
+     3- create admin table 
+            - php artisan make:migration create_admins_table --create=admins
+            - php artisan migrate
+     4- 
+        
