@@ -17,7 +17,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
-        return view('Dashboard.User.auth.login');
+        return view('Dashboard.User.auth.signin');
     }
 
     /**
@@ -27,7 +27,7 @@ class AuthenticatedSessionController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(LoginRequest $request)
-    {
+    { dd( $request->all());
         $request->authenticate();
 
         $request->session()->regenerate();
