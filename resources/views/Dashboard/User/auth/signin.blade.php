@@ -51,7 +51,7 @@
 													</div>
 													<div class="form-group">
 														<label>Password</label> <input class="form-control" placeholder="Enter your password"  type="password"
-                                														name="password" required autocomplete="current-password" />>
+                                														name="password" required autocomplete="current-password" />
 													</div><button class="btn btn-main-primary btn-block" type="submit" >Sign In</button>
 													<div class="row row-xs">
 														<div class="col-sm-6">
@@ -80,7 +80,7 @@
 													</div>
 													<div class="form-group">
 														<label>Password</label> <input class="form-control" placeholder="Enter your password"  type="password"
-                                														name="password" required autocomplete="current-password" />>
+                                														name="password" required autocomplete="current-password" />
 													</div><button class="btn btn-main-primary btn-block" type="submit" >Sign In</button>
 													<div class="row row-xs">
 														<div class="col-sm-6">
