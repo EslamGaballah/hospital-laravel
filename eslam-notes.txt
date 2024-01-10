@@ -18,4 +18,30 @@
      4- 
 // lesson 4   log in admin 
     1- 
+
+ // lesson 5 rtl & ltr style - seeder
+    1- register mcamara
+    2- include ltr style 
+    3- make seeders
+            - php artisan make:seeder User TableSeeder
+            - php artisan mi:f --seed   
+
+// lesson 6 table section translation
+    1- translate sections
+    2- create sections table
+            - php artisan make:migration create_sections_table --create=sections
+    3- create section translation table
+            - php artisan make:migration create_section_translations_table --create=section_translation
+    4- php artisan make:model Model/SectionTranslation
+    5- php artisan make:model Model/Section
+
+// lesson 7 dealing with sections table 
+        1- create section controller
+                - php artisan make:controller Dashboard\SectionController --resource
+        2- make route section 
+        3- make folder repoository
+        4- make folder interfaces
+        5- make provider
+                - php artisan make:provider RepositoryServiceprovider
+     
         

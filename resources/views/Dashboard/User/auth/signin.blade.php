@@ -29,14 +29,23 @@
 										<div class="mb-5 d-flex"> <a href="{{ url('/' . $page='index') }}"><img src="{{URL::asset('Dashboard/img/brand/favicon.png')}}" class="sign-favicon ht-40" alt="logo"></a><h1 class="main-logo1 ml-1 mr-0 my-auto tx-28">Va<span>le</span>x</h1></div>
 										<div class="card-sigin">
 											<div class="main-signup-header">
-												<h2>Welcome back!</h2>
+												<h2>{{trans('Dashboard/login_trans.welcome_back')}}</h2>
+												@if ($errors->any())
+													<div class="alert alert-danger">
+														<ul>
+															@foreach ($errors->all() as $error)
+																<li>{{ $error }}</li>
+															@endforeach
+														</ul>
+													</div>
+												@endif
 
 												<div class="form-group">
-													<label for="exampleFormControlSelect1">حدد طريقة الدخول</label>
+													<label for="exampleFormControlSelect1">{{trans('Dashboard/login_trans.Select_Enter')}}</label>
 													<select class="form-control" id="sectionChooser">
-													<option value="" selected disabled>اختر من القائمه</option>
-													<option value="user">الدخول كمريض</option>
-													<option value="admin">الدخول كأدمن</option>
+													<option value="" selected disabled>{{trans('Dashboard/login_trans.Choose_list')}}</option>
+													<option value="user"> {{trans('Dashboard/login_trans.user')}}</option>
+													<option value="admin">{{trans('Dashboard/login_trans.admin')}} </option>
 													
 													</select>
 												</div>

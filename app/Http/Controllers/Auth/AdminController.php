@@ -39,12 +39,14 @@ class AdminController extends Controller
      */
     public function store(AdminLoginRequest $request)
     {
-        // return $request;
-        $request->authenticate();
+        if( $request->authenticate()){
+            $request->session()->regenerate();
 
-        $request->session()->regenerate();
+            return redirect()->intended(RouteServiceProvider::ADMIN);
+        }
+        return redirect()->back()->withErrors(['name'=>'يوجد خطأ فى كلمة المرور أو اسم المستخدم']);
 
-        return redirect()->intended(RouteServiceProvider::ADMIN);
+       
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\SectionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,13 +24,27 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){ 
 
+        // ----------------- start Dashboard user ----------------------------
         Route::get('/dashboard/user', function () {
             return view('Dashboard.User.dashboard');
         })->middleware(['auth'])->name('dashboard.user');
-        
+        // ------------------End user Dashboard -------------------------------
+
+        // ------------------Start admin Dashboard ----------------------------
         Route::get('/dashboard/admin', function () {
             return view('Dashboard.Admin.dashboard');
         })->middleware(['auth:admin'])->name('dashboard.admin');
+        // ------------------ End admin Dashboard ------------------------------
+        
+        // ----------------------------------------------------------
+        Route::middleware(['auth:admin'])->group(function(){
+
+            // --------------- start sections route -----------------------
+            Route::resource('sections', SectionController::class);
+            // --------------- End sections route -------------------------
+
+        });
+        
         
         
         require __DIR__.'/auth.php';
