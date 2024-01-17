@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Model;
+namespace App\Models;
 use Astrotomic\Translatable\Translatable;
 use Astrotomic\Translatable\contracts\Translatable as Translatablecontract;
 
@@ -10,9 +10,9 @@ use Illuminate\Database\Eloquent\Model;
 class Section extends Model
 {   
     use Translatable; // to add translation methods
-    protected $fillable =['name'];
+    protected $fillable =['name', 'description'];
     // to define which attributes needs to be translated
-    public $translatedAttributes = ['name'];
+    public $translatedAttributes = ['name', 'description'];
 
     use HasFactory;
 }

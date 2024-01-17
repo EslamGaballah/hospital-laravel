@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\SectionController;
+use App\Http\Controllers\Dashboard\DoctorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +43,10 @@ Route::group(
             // --------------- start sections route -----------------------
             Route::resource('sections', SectionController::class);
             // --------------- End sections route -------------------------
+
+            // --------------- start doctor route -----------------------
+            Route::resource('Doctors', DoctorController::class);
+            // --------------- End doctor route -------------------------
 
         });
         

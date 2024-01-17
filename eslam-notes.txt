@@ -6,7 +6,7 @@
     // 4- install laravel breeze
     // 5- create new route file dashboard 
     // 6- install dashboard backend 
-    // 7- php artisan make: controller Dashboard\DashboardController
+    // 7- php artisan make:controller Dashboard\DashboardController
     // 8- create route Dashboard index
 
 // lesson 3
@@ -44,4 +44,37 @@
         5- make provider
                 - php artisan make:provider RepositoryServiceprovider
      
+ // lesson 8 create doctors table and factory
+        1- create doctors table 
+                - php artisan make:migration create_doctors_table --create=doctors       
+                - php artisan make:migration create_doctor_translations_table --create=doctor_translations       
+        2- create doctor model  
+                - php artisan make:model Doctor
+                - php artisan make:model DoctorTranslation
+        3- relation ships one to one (polymorphic) 
+                - php artisan make:migration create_images_table --create=images
+                - php artisan make:model Image
+        4- make doctor factory 
+                - php artisan make:factory DoctorFactory
+        5- make seeders
+            - php artisan make:seeder DoctorTableSeeder
+            - php artisan db:seed
+        6- make image factory
+                - php artisan make:factory ImageFactory
+        7- make image seeder
+                - php artisan make:seeder ImageTableSeeder
+        8- make doctor controller
+                - php artisan make:controller Dashboard\DoctorController --resource
+        
+// lesson 9 joedixon laravel translation & edit table doctor & factory hospital
+        1- joedixon
+        2- make section factory
+        3- make section seeder
+        4- php artisan mi:f --seed
+        
+// lesson 10 table doctor & traits 
+        - add doctor and images
+
+// lesson 11 Delete doctor & images
+        1- 
         

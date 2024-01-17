@@ -14,8 +14,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            //  call with arrange تنفذ بالترتيب
             UserTableSeeder::class,
             AdminTableSeeder::class,
+            SectionTableSeeder::class,
+            DoctorTableSeeder::class,
+            ImageTableSeeder::class,
           
         ]);
     }
