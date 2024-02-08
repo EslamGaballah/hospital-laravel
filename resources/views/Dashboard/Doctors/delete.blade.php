@@ -15,7 +15,12 @@
                 {{ csrf_field() }}
                 <div class="modal-body">
                     <h5>{{ trans('MainCategories_trans.Warning') }}</h5>
+                    @if ($doctor->image)
+                        <input type="hidden" name="filename" value="{{$doctor->image->filename}}">
+                        
+                    @endif
                     <input type="hidden" name="id" value="{{ $doctor->id }}">
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary"

@@ -6,6 +6,7 @@ use App\Interfaces\Doctors\DoctorRepositoryInterface;
 use App\Models\Doctor;
 use App\Models\Image;
 use App\Models\Section;
+use App\Models\Appointment;
 use App\Traits\UploadTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -22,7 +23,8 @@ class DoctorRepository implements DoctorRepositoryInterface
     public function create()
     {
         $sections = Section::all();
-        return view('Dashboard.Doctors.add', compact('sections'));
+        $appointments = Appointment::all();
+        return view('Dashboard.Doctors.add', compact('sections', 'appointments'));
     }
 
     public function store($request)
@@ -72,10 +74,16 @@ class DoctorRepository implements DoctorRepositoryInterface
 
     public function destroy($request)
     {
-        Doctor::findOrFail($request->id)->delete();
+        // Doctor::findOrFail($request->id)->delete();
         
-        session()->flash('delete');
-        return redirect()->route('Doctors.index');
+        // session()->flash('delete');
+        // return redirect()->route('Doctors.index');
+        if(){
+
+        }
+        else{
+            
+        }
     }
 
 }

@@ -76,5 +76,14 @@
         - add doctor and images
 
 // lesson 11 Delete doctor & images
-        1- 
+        1- translate description 
+        2- make migration appointments
+                - php artisan make:migration create_appointments_table --create=appointments
+                - php artisan make:migration create_appointment_translations_table --create=appointment_translations
+        3- make model appointment 
+                - php artisan make:model Appointment
+                - php artisan make:model AppointmentTranslation
+        4- make seeder appointment 
+                - php artisan make:seeder AppointmentSeeder
+                - php artisan mi:f --seed
         
