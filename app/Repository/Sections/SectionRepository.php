@@ -40,6 +40,21 @@ class SectionRepository implements SectionRepositoryInterface
         return redirect()->route('sections.index');
     }
 
+    public function show($id)
+    {
+        // $xx = Doctor::where('section_id', $id)->get();
+        $doctors = Section::findOrFail($id)->doctors;        
+
+        // foreach ($doctors as $doctor) {
+
+        //     return $doctor->name;
+        // }
+
+        $doctors = Section::findOrFail($id)->doctors;
+        $section = Section::findOrFail($id);
+        return view('Dashboard.Sections.show_doctors', compact('doctors', 'section'));
+    }
+
 }
 
 

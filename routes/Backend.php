@@ -31,12 +31,14 @@ Route::group(
         })->middleware(['auth'])->name('dashboard.user');
         // ------------------End user Dashboard -------------------------------
 
+        
         // ------------------Start admin Dashboard ----------------------------
         Route::get('/dashboard/admin', function () {
             return view('Dashboard.Admin.dashboard');
         })->middleware(['auth:admin'])->name('dashboard.admin');
         // ------------------ End admin Dashboard ------------------------------
         
+
         // ----------------------------------------------------------
         Route::middleware(['auth:admin'])->group(function(){
 
@@ -44,8 +46,11 @@ Route::group(
             Route::resource('sections', SectionController::class);
             // --------------- End sections route -------------------------
 
+
             // --------------- start doctor route -----------------------
             Route::resource('Doctors', DoctorController::class);
+            Route::post('update_password', [DoctorController::class, 'update_password'])->name('update_password');
+            Route::post('update_status', [DoctorController::class, 'update_status'])->name('update_status');
             // --------------- End doctor route -------------------------
 
         });

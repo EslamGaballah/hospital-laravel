@@ -86,4 +86,10 @@
         4- make seeder appointment 
                 - php artisan make:seeder AppointmentSeeder
                 - php artisan mi:f --seed
-        
+// lesson 12 delete selector doctor
+        1- delete selected doctor
+        2- make doctor appointments automatic 
+                - make doctor appointment table (many to many relation)        
+
+// lesson 14 table service 
+        1- 

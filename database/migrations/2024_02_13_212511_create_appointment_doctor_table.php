@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDoctorTranslationsTable extends Migration
+class CreateAppointmentDoctorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateDoctorTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('doctor_translations', function (Blueprint $table) {
-            $table->id(); 
-            // $table->integer('doctor_id')->unsigned(); foreignedId is a reblacement for it
-            $table->string('locale')->index;
-            $table->string('name');
-            $table->unique(['doctor_id', 'locale']);
+        Schema::create('appointment_doctor', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
+            $table->foreignId('appointment_id')->references('id')->on('appointments')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -30,6 +28,6 @@ class CreateDoctorTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctor_translations');
+        Schema::dropIfExists('appointment_doctor');
     }
 }
