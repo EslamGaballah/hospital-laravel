@@ -15,7 +15,9 @@ class CreateGroupServices extends Component
     public $name_group;
     public $notes;
     public $ServiceSaved = false;
-
+    public $show_table = true;
+    public  $updateMode = false;
+    public $group_id; 
     public function mount()
     {
         $this->allServices = Service::all();
@@ -32,6 +34,7 @@ class CreateGroupServices extends Component
         }
 
         return view('livewire.GroupServices.create-group-services', [
+            'groups'=> Group::all(),
             'subtotal' => $Total_after_discount = $total - ((is_numeric($this->discount_value) ? $this->discount_value : 0)),
             'total' => $Total_after_discount * (1 + (is_numeric($this->taxes) ? $this->taxes : 0) / 100)
         ]);
@@ -125,5 +128,38 @@ class CreateGroupServices extends Component
         $this->discount_value = 0;
         $this->ServiceSaved = true;
     }
+
+    public function show_form_add(){
+        $this->show_table = false;
+    }
+
+    public function edit($id)
+    {
+        $this->show_table = false;
+        $this->updateMode = true;
+        $group = Group::where('id',$id)->first();
+        $this->group_id = $id;
+
+        $this->reset('GroupsItems', 'name_group', 'notes');
+        $this->name_group= $group->name;
+        $this->notes= $group->notes;
+
+        $this->discount_value = intval($group->discount_value);
+        $this->ServiceSaved = false;
+
+        foreach ($group->service_group as $serviceGroup)
+        {
+            $this->GroupsItems[] = [
+                'service_id' => $serviceGroup->id,
+                'quantity' => 8,
+                'is_saved' => true,
+                'service_name' => $serviceGroup->name,
+                'service_price' => $serviceGroup->price
+            ];
+        }
+    }
+
+
+
 
 }

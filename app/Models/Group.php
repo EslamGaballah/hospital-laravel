@@ -12,6 +12,11 @@ class Group extends Model
     use HasFactory;
     public $translatedAttributes = ['name', 'notes'];
     public $fillable = ['Total_before_discount', 'discount_value', 'Total_after_discount', 'Tax_rate', 'Total_with_tax'];
+      //public $guarded=[];
 
+      public function service_group()
+      {
+          return $this->belongsToMany(Service::class,'service_group');
+      }
 
 }
