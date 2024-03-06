@@ -2,7 +2,7 @@
 <title> @yield('title') </title>
 
 @yield('css')
-
+@livewireStyles
 
 @if (App::getLocale() == 'ar')
 

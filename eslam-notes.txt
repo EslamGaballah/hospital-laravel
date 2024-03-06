@@ -92,4 +92,12 @@
                 - make doctor appointment table (many to many relation)        
 
 // lesson 14 table service 
-        1- 
+        1- repaire insert doctor
+        2- create services table
+                - php artisan make:migration create_Services_table --create=Services
+                - php artisan make:migration create_Service_translations_table --create=Service_translations
+        3- make model service
+                - php artisan make:model Service
+                - php artisan make:model ServiceTranslation
+        4- make controller service
+                - php artisan make:controller Dashboard\SingleServiceController --resource      
